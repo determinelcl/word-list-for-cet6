@@ -27,4 +27,12 @@ public class Word {
     public void setMeanings(List<MeaningOfWords> meanings) {
         this.meanings = meanings;
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "english='" + english + '\'' +
+                ", meanings=" + meanings +
+                '}';
+    }
 }
