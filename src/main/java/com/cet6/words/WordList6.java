@@ -1,14 +1,16 @@
 package com.cet6.words;
 
+import com.alibaba.fastjson.JSON;
 import com.cet6.AttributeOfWords;
 import com.cet6.MeaningOfWords;
 import com.cet6.Word;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WordList6 {
+public class WordList6 implements WordList {
 
     private List<Word> words;
 
@@ -236,7 +238,7 @@ public class WordList6 {
                 new MeaningOfWords(AttributeOfWords.VI, "塌陷，瓦解；崩，突然失败")));
 
         newWord("instantaneous", newMeaning(
-                new MeaningOfWords(AttributeOfWords.ADJ,"瞬间的，即刻的")));
+                new MeaningOfWords(AttributeOfWords.ADJ, "瞬间的，即刻的")));
 
         newWord("commodity", newMeaning(
                 new MeaningOfWords(AttributeOfWords.N, "商品，货物")));
@@ -286,5 +288,22 @@ public class WordList6 {
         return "WordList6{" +
                 "words=" + words +
                 '}';
+    }
+
+    @Override
+    public boolean toJson() throws IOException {
+        String wordList = JSON.toJSONString(words, true);
+        BufferedOutputStream outputStream = new BufferedOutputStream(
+                new FileOutputStream(new File("./word_list6.json")));
+
+        outputStream.write(wordList.getBytes());
+        outputStream.flush();
+        outputStream.close();
+        return true;
+    }
+
+    @Override
+    public boolean loadJson() {
+        return false;
     }
 }
