@@ -21,7 +21,7 @@ mvnw
 .DS_Store
 src/test
 target
-word_list*.json
+# word_list*.json
 
 
 ### NetBeans ###

@@ -1,5 +1,8 @@
 package com.cet6;
 
+/**
+ * 用于描述单词的词性的枚举
+ */
 public enum AttributeOfWords {
     PREP("介系词", "（介词）；前置词，preposition的缩写"),
     PRON("代名词", "（代词），pronoun的缩写"),
@@ -22,18 +25,37 @@ public enum AttributeOfWords {
     C("可数名词", "countable noun的缩写"),
     PL("复数", "plural的缩写");
 
+    /**
+     * 词性枚举的意思
+     */
     private String mean;
+
+    /**
+     * 词性枚举意思的描述
+     */
     private String desc;
 
+    /**
+     * 新建一个单词词性的枚举，适用于内部对象的新建
+     *
+     * @param mean 词性枚举的意思
+     * @param desc 词性枚举意思的描述
+     */
     AttributeOfWords(String mean, String desc) {
         this.mean = mean;
         this.desc = desc;
     }
 
+    /**
+     * @return 获取词性枚举所表示的意思
+     */
     public String getMean() {
         return mean;
     }
 
+    /**
+     * @return 获取词性枚举意思的描述
+     */
     public String getDesc() {
         return desc;
     }
